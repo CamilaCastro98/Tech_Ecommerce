@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.smHidden {
+    @apply hidden sm:hidden md:block lg:block xl:block
+}
+
+.categories {
+    @apply hidden md:block lg:block xl:block text-p-color hover:underline
+}
+
+.smNavbar {
+    @apply text-p-color text-sm hover:underline md:hidden
+}
+
+body {
+    font-family: Inter;
+}
+
