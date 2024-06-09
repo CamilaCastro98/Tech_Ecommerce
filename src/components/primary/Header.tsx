@@ -26,7 +26,7 @@ const Header: React.FC = () => {
         <div id="animation-carousel" className="relative z-0 w-full" data-carousel="slide">
             <div className="relative h-56 overflow-hidden md:h-96">
                 <div className="duration-200 ease-linear" data-carousel-item="active">
-                    <Image src="/banners/topTech.png" className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="Slide 1" width={500} height={300} unoptimized />
+                    <Image src="/banners/TopTech.png" className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="Slide 1" width={500} height={300} unoptimized />
                 </div>
                 <div className="duration-200 ease-linear" data-carousel-item>
                     <Image src="/banners/sale.png" className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="Slide 2"  width={500} height={300} unoptimized />
