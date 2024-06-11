@@ -21,7 +21,7 @@ const Summary: React.FC<ITotal> = ({ content }) => {
     } else {
       setDisabled(false);
     }
-  }, [disabled])
+  }, [content])
 
   useEffect(() => {
     if (typeof window !== undefined && window.localStorage) {
@@ -35,6 +35,9 @@ const Summary: React.FC<ITotal> = ({ content }) => {
   }, []);
 
   const handlePurchase = async () => {
+    if (disabled) {
+      return
+    }
     try {
       Swal.fire({
         title: "Do you want to proceed with the purchase?",
@@ -49,10 +52,11 @@ const Summary: React.FC<ITotal> = ({ content }) => {
 
           await addOrder(userData);
 
-          localStorage.removeItem('cart');
-          setCartData([]);
-          const event = new Event('cartChange');
-          window.dispatchEvent(event);
+            setCartData([]);
+            localStorage.setItem('cart', JSON.stringify(cartData));
+
+            const event = new Event('cartChange');
+            window.dispatchEvent(event)
   
           Swal.fire({
             title: "Done!",

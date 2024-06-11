@@ -8,7 +8,6 @@ import CardsContainer from "../secondary/CardsContainer";
 import FilterDrawer from "../secondary/FilterDrawer";
 
 const CardsHome: React.FC = () => {
-
   const [products, setProducts] = useState<IProduct[]>([]);
   const [originalProducts, setOriginalProducts] = useState<IProduct[]>([]);
 
@@ -22,31 +21,29 @@ const CardsHome: React.FC = () => {
     fetchAndSetProducts();
   }, []);
 
-  const applyLowToHigh = () => {
+  const applyLowToHigh = useCallback(() => {
     const orderedProducts = [...products].sort((a, b) => a.price - b.price);
     setProducts(orderedProducts);
-  }
+  }, [products]);
 
-  const applyHighToLow = () => {
+  const applyHighToLow = useCallback(() => {
     const orderedProducts = [...products].sort((a, b) => b.price - a.price);
     setProducts(orderedProducts);
-  }
+  }, [products]);
 
-  const resetOrder = () => {
+  const resetOrder = useCallback(() => {
     setProducts(originalProducts);
-  }
+  }, [originalProducts]);
 
-  const applyRange = (event: Event) => {
+  const applyRange = useCallback((event: Event) => {
     if (event instanceof CustomEvent) {
       const { min, max } = event.detail;
       const minP = min || 0;
       const maxP = max || Infinity;
-      console.log(`Max es ${maxP} y min es ${minP}`)
       const orderedProducts = [...originalProducts].filter((p) => p.price > minP && p.price < maxP);
-
-        setProducts(orderedProducts);
+      setProducts(orderedProducts);
     }
-  }
+  }, [originalProducts]);
 
   useEffect(() => {
     if (typeof window !== 'undefined') {

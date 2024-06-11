@@ -80,7 +80,7 @@ const Login = () => {
                             </Link>
                         </div>
                         <div className="text-center mt-2">
-                            <p className="text-sm text-gray-50">Do not have an account? <Link className="text-t-color font-semibold hover:underline" href="/register">Register</Link></p>
+                            <p className="text-sm text-gray-50">Don't have an account? <Link className="text-t-color font-semibold hover:underline" href="/register">Register</Link></p>
                         </div>
                     </Form>
                 </Formik>

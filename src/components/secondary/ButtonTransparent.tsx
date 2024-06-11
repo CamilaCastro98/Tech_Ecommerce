@@ -13,7 +13,8 @@ const ButtonTransparent: React.FC<ButtonProps> = ({content,type,name,onClick}) =
 
     return (
         name === "cart" && !isAuth ? null
-        :   <button onClick={onClick} name={name} type={type} className="bg-transparent text-sm w-full rounded-sm border-2 border-gray-50 sm:text-base text-gray-50 font-normal px-2 p-1 hover:border-gray-400 hover:text-gray-400">{content}</button>
+        :   <button onClick={onClick} name={name} type={type} className="bg-transparent 
+        text-sm w-full rounded-sm border-2 border-gray-50 sm:text-base text-gray-50 font-normal px-2 p-1 hover:border-gray-400 hover:text-gray-400">{content}</button>
     )
 
 }

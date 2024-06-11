@@ -14,10 +14,7 @@ export const fetchProducts = async () => {
     try {
         const response = await fetch(`${apiURL}/products`, {
             method: "GET",
-            next: {revalidate: 3600},
-            headers: {
-              'ngrok-skip-browser-warning': 'true'
-            }
+            next: {revalidate: 3600}
         });
         if (!response.ok) {
             throw new Error(`Error en la solicitud: ${response.status} ${response.statusText}`);

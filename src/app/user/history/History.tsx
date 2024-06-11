@@ -67,7 +67,7 @@ const CartHistory:React.FC = () => {
         </div>
        </>
        :
-       <p className="p-6 text-center text-gray-50 text-xs italic">Your do not have a purchase history yet! </p>
+       <p className="p-6 text-center text-gray-50 text-xs italic">Your don't have a purchase history yet! </p>
         }
         <div className="flex flex-col items-center justify-center gap-2 m-6">
             <Link className="w-64" href="/"><ButtonFull content="Return Home"><MdLogout className="w-5 h-auto mr-1"/></ButtonFull></Link>

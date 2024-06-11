@@ -25,7 +25,6 @@ const addOrder = async (userData: string | null) => {
         return;
       }     
       const data = await response.json();
-      console.log('Order created successfully:', data);
       const updatedOrders = await getOrdersById(userData)
       const userSessionString = localStorage.getItem('userSession');
       if (userSessionString) {

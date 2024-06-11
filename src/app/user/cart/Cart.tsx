@@ -22,7 +22,6 @@ const Cart = () => {
             setCartData(cartData)
             const event = new Event('cartChange');
             window.dispatchEvent(event)
-            console.log("se borró elemento")
         } else {
             throw new Error("Los datos no existen");
         }
