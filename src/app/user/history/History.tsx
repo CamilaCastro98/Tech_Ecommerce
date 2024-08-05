@@ -39,7 +39,7 @@ const CartHistory: React.FC = () => {
         <>
             <h1 className="text-gray-50 m-8 font-normal text-center text-2xl">My Purchase History</h1>
             <div className="flex justify-center">
-                <ul className={`flex w-full mx-6 md:!w-1/2 justify-around bg-t-color font-semibold text-sm text-p-color mt-4 ${orders.length === 0 ? 'hidden' : ''}`}>
+                <ul className={`flex mx-5 md:mx-0 w-full md:!w-1/2 justify-around bg-t-color font-semibold text-sm text-p-color mt-4 ${orders.length === 0 ? 'hidden' : ''}`}>
                     <li>Date</li>
                     <li>Products</li>
                     <li>Status</li>
@@ -48,10 +48,10 @@ const CartHistory: React.FC = () => {
             </div>
             {orders.length > 0 ?
                 <>
-                    <div className="flex flex-col items-center mb-10">
-                        <div className="md:w-1/2">
+                    <div className="flex flex-col mx-5 md:mx-0 items-center mb-10">
+                        <div className="w-full md:!w-1/2">
                             {orders.map((o, index) => (
-                                <ul key={index} className="text-p-color bg-gray-50 text-sm flex gap-8 mt-2 py-4 rounded-sm justify-around">
+                                <ul key={index} className="text-p-color bg-gray-50 text-xs md:text-sm flex gap-8 mt-2 py-4 rounded-sm justify-around">
                                     <li className="md:w-25">{formatDate(o.date)}</li>
                                     <li>
                                         {o.products.map((p, index) => {
