@@ -27,7 +27,6 @@ const Cart = () => {
         }
     }
 
-
     useEffect(() => {
         if (typeof window !== 'undefined') {
             const cartString = localStorage.getItem('cart');
@@ -49,14 +48,14 @@ const Cart = () => {
     return(
         <div className="m-8">
             <GoHomeIcon/>
-            <h1 className="text-gray-50 m-8 font-normal text-center text-2xl">My Cart</h1>
+            <h1 className="text-gray-50 m-8 font-normal text-2xl">My Cart</h1>
             <div className="flex text-xs flex-col md:flex-row md:gap-16 mx-5">
                 <div  className="flex flex-col md:w-2/3 p-4">
-                <div>
+                <div className={cartData.length > 0 ? "" : "hidden"}>
                     <ul className="flex md:text-sm justify-around ml-16 text-p-color bg-t-color font-semibold">
                         <li className="md:w-56">Product</li>
-                        <li>Quantity</li>
-                        <li>Price</li>
+                        <li className="md:mr-10 lg:mr-0">Quantity</li>
+                        <li className="">Price</li>
                     </ul>
                 </div>
             {cartData.length > 0?

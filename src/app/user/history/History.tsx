@@ -10,7 +10,7 @@ import ButtonFull from "@/components/secondary/ButtonFull"
 import Link from "next/link"
 import { MdLogout } from "react-icons/md";
 
-const CartHistory:React.FC = () => {
+const CartHistory: React.FC = () => {
     const [orders, setOrders] = useState<IOrder[]>([])
     const [token, setToken] = useState<string>("")
     let total: number = 0
@@ -37,44 +37,43 @@ const CartHistory:React.FC = () => {
 
     return (
         <>
-        <h1 className="text-gray-50 m-8 font-normal text-center text-2xl">My Purchase History</h1>
-        <div className="flex justify-center">
-         <ul className="flex w-11/12 sm:w-1/2 justify-around bg-t-color font-semibold text-sm text-p-color mt-4">
-                <li>Date</li>
-                <li>Products</li>
-                <li>Status</li>
-                <li>Total</li>
-        </ul>
-        </div>
-       { orders.length > 0?
-       <>
-       <div className="flex flex-col items-center mb-10">
-            <div className="md:w-1/2">
-                {orders.map((o, index) => (
-                        <ul key={index} className="text-p-color bg-gray-50 text-sm flex gap-8 mt-2 py-4 rounded-sm justify-around">
-                            <li className="md:w-25">{formatDate(o.date)}</li>
-                            <li>
-                                {o.products.map((p, index) => {
-                                    total += p.price;
-                                    return <PurchaseCard key={index} {...p} />;
-                                })}
-                            </li>
-                            <li>{o.status}</li>
-                            <li className="md:w-16">${total}</li>
-                        </ul>
-                ))}
+            <h1 className="text-gray-50 m-8 font-normal text-center text-2xl">My Purchase History</h1>
+            <div className="flex justify-center">
+                <ul className={`flex w-full mx-6 md:!w-1/2 justify-around bg-t-color font-semibold text-sm text-p-color mt-4 ${orders.length === 0 ? 'hidden' : ''}`}>
+                    <li>Date</li>
+                    <li>Products</li>
+                    <li>Status</li>
+                    <li>Total</li>
+                </ul>
             </div>
-        </div>
-       </>
-       :
-       <p className="p-6 text-center text-gray-50 text-xs italic">Your do not have a purchase history yet! </p>
-        }
-        <div className="flex flex-col items-center justify-center gap-2 m-6">
-            <Link className="w-64" href="/"><ButtonFull content="Return Home"><MdLogout className="w-5 h-auto mr-1"/></ButtonFull></Link>
-            <Link className="w-64" href="/user/cart"><ButtonTransparent content="Go to Cart"/></Link>       
-        </div>
+            {orders.length > 0 ?
+                <>
+                    <div className="flex flex-col items-center mb-10">
+                        <div className="md:w-1/2">
+                            {orders.map((o, index) => (
+                                <ul key={index} className="text-p-color bg-gray-50 text-sm flex gap-8 mt-2 py-4 rounded-sm justify-around">
+                                    <li className="md:w-25">{formatDate(o.date)}</li>
+                                    <li>
+                                        {o.products.map((p, index) => {
+                                            total += p.price;
+                                            return <PurchaseCard key={index} {...p} />;
+                                        })}
+                                    </li>
+                                    <li>{o.status}</li>
+                                    <li className="md:w-16">${total}</li>
+                                </ul>
+                            ))}
+                        </div>
+                    </div>
+                </>
+                :
+                <p className="p-6 text-center text-gray-50 text-xs italic">You do not have a purchase history yet!</p>
+            }
+            <div className="flex flex-col items-center justify-center gap-2 m-6">
+                <Link className="w-64" href="/"><ButtonFull content="Return Home"><MdLogout className="w-5 h-auto mr-1" /></ButtonFull></Link>
+                <Link className="w-64" href="/user/cart"><ButtonTransparent content="Go to Cart" /></Link>
+            </div>
         </>
-
     );
 };
 

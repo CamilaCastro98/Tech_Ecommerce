@@ -10,7 +10,7 @@ const CartProduct: React.FC<ICartProduct> = ({name,image,price}) => {
                 <Image className="h:16 sm:h-20 w-auto border rounded-md" src={image} alt="imgProduct"  width={500} height={300} priority unoptimized/>
                 <h3 className="font-semibold">{name}</h3>
           </li>
-          <li><p>1 unit</p></li>
+          <li className="md:mr-10 lg:mr-0"><p>1 unit</p></li>
           <li ><p>${price}</p></li>
         </ul>
         </>
